@@ -1,25 +1,37 @@
+var baseUrl = "http://localhost:8000";
+
 class APIHandler {
-  constructor (baseUrl) {
+  constructor(baseUrl) {
     this.BASE_URL = baseUrl;
   }
 
-  getFullList () {
-
+  getFullList() {
+    return axios.get(`${baseUrl}/characters`);
   }
 
-  getOneRegister () {
-
+  getOneRegister(id) {
+    return axios.get(`${baseUrl}/characters/${id}`);
   }
 
-  createOneRegister () {
-
+  createOneRegister(name, occupation, weapon, cartoon) {
+    return axios.post(`${baseUrl}/characters`, {
+      name: name,
+      occupation: occupation,
+      weapon: weapon,
+      cartoon: cartoon
+    });
   }
 
-  updateOneRegister () {
-
+  updateOneRegister(name, occupation, weapon, cartoon) {
+    return axios.patch(`${baseUrl}/characters/${id}`, {
+      name: name,
+      occupation: occupation,
+      weapon: weapon,
+      cartoon: cartoon
+    });
   }
 
-  deleteOneRegister () {
-
+  deleteOneRegister(id) {
+    return axios.delete(`${baseUrl}/characters/${id}`);
   }
 }
